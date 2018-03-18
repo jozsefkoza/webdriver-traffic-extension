@@ -1,0 +1,259 @@
+{
+  "log": {
+    "version": "1.2",
+    "creator": {
+      "name": "WebInspector",
+      "version": "537.36"
+    },
+    "pages": [
+      {
+        "startedDateTime": "2018-03-17T16:20:39.214Z",
+        "id": "page_1",
+        "title": "http://www.google.com/",
+        "pageTimings": {
+          "onContentLoad": 430,
+          "onLoad": 630
+        }
+      }
+    ],
+    "entries": [
+      {
+        "startedDateTime": "2018-03-17T16:20:39.466Z",
+        "time": 113.27099999998336,
+        "request": {
+          "method": "GET",
+          "url": "https://www.google.hu/?gfe_rd=cr&dcr=0&ei=V0CtWpePFqXL8gelrLuoDQ",
+          "httpVersion": "http/2.0+quic/39",
+          "headers": [
+            {
+              "name": ":path",
+              "value": "/?gfe_rd=cr&dcr=0&ei=V0CtWpePFqXL8gelrLuoDQ"
+            },
+            {
+              "name": "accept-encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "accept-language",
+              "value": "en,en-GB;q=0.9,hu;q=0.8,en-US;q=0.7"
+            },
+            {
+              "name": "upgrade-insecure-requests",
+              "value": "1"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36"
+            },
+            {
+              "name": "accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"
+            },
+            {
+              "name": ":authority",
+              "value": "www.google.hu"
+            },
+            {
+              "name": "cookie",
+              "value": "CONSENT=YES+HU.en+20160717-08-0; SID=pAVnUvUwGbLXvM24uwjJwqSE29egzyO3TSCFE5mUOxCsMpMzbR0kS0XuJ9aRyENhDHqK2w.; HSID=AbQuSGOtxDcn8F4cP; SSID=ANJZgOjHRSP2ukdJg; APISID=6rOyNjHLKGqLbAHm/A0NvW39ssFmkrENCW; SAPISID=btuYzC3AvGMbXQio/AvWleHowPMHVazFOP; NID=126=Al8H2KTv5lvd_EMmeOW32FwJu_eeaCr2JY8gM9eXGq6-bM_Vx2jaKz3gDE8UWOOCz8gKrHkuG18usKxKNLkpWj9rQxaKDt4RQ1wvWbgWcZodW6_22r-10pOVTHjFDe35E9qp1Y2A5zhlOjFNzb8rv50Iy1Ivof4pRs-7E1U6mpH6lioGu55zMKowB673IRRFW1BQsEc8yLgMl11c0J5AmU7TOQqS63L_cxdM53odDb0xMVHNtgFX-jRXprJOtNdATqOEZLqiih6n-1TyYk39CNSp; DV=Q74bqCaJKNOJoLMrgVKH3Ja1JalLIxbt9wMFEhQ_zwAAABDrbrVJxy-k5AAAALAzETi0H1z4OgAAAMKB-zMlQ7QONGcWAJ7qRy_62qkgzZkFIPs_ZJY6ITCQc2YBoIHw9CJQxOL2nFkA; 1P_JAR=2018-3-17-16"
+            },
+            {
+              "name": ":scheme",
+              "value": "https"
+            },
+            {
+              "name": ":method",
+              "value": "GET"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "gfe_rd",
+              "value": "cr"
+            },
+            {
+              "name": "dcr",
+              "value": "0"
+            },
+            {
+              "name": "ei",
+              "value": "V0CtWpePFqXL8gelrLuoDQ"
+            }
+          ],
+          "cookies": [
+            {
+              "name": "CONSENT",
+              "value": "YES+HU.en+20160717-08-0",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "SID",
+              "value": "pAVnUvUwGbLXvM24uwjJwqSE29egzyO3TSCFE5mUOxCsMpMzbR0kS0XuJ9aRyENhDHqK2w.",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "HSID",
+              "value": "AbQuSGOtxDcn8F4cP",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "SSID",
+              "value": "ANJZgOjHRSP2ukdJg",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "APISID",
+              "value": "6rOyNjHLKGqLbAHm/A0NvW39ssFmkrENCW",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "SAPISID",
+              "value": "btuYzC3AvGMbXQio/AvWleHowPMHVazFOP",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "NID",
+              "value": "126=Al8H2KTv5lvd_EMmeOW32FwJu_eeaCr2JY8gM9eXGq6-bM_Vx2jaKz3gDE8UWOOCz8gKrHkuG18usKxKNLkpWj9rQxaKDt4RQ1wvWbgWcZodW6_22r-10pOVTHjFDe35E9qp1Y2A5zhlOjFNzb8rv50Iy1Ivof4pRs-7E1U6mpH6lioGu55zMKowB673IRRFW1BQsEc8yLgMl11c0J5AmU7TOQqS63L_cxdM53odDb0xMVHNtgFX-jRXprJOtNdATqOEZLqiih6n-1TyYk39CNSp",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "DV",
+              "value": "Q74bqCaJKNOJoLMrgVKH3Ja1JalLIxbt9wMFEhQ_zwAAABDrbrVJxy-k5AAAALAzETi0H1z4OgAAAMKB-zMlQ7QONGcWAJ7qRy_62qkgzZkFIPs_ZJY6ITCQc2YBoIHw9CJQxOL2nFkA",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "1P_JAR",
+              "value": "2018-3-17-16",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            }
+          ],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "http/2.0+quic/39",
+          "headers": [
+            {
+              "name": "date",
+              "value": "Sat, 17 Mar 2018 16:20:39 GMT"
+            },
+            {
+              "name": "content-encoding",
+              "value": "br"
+            },
+            {
+              "name": "server",
+              "value": "gws"
+            },
+            {
+              "name": "x-frame-options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "name": "p3p",
+              "value": "CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\""
+            },
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "set-cookie",
+              "value": "1P_JAR=2018-03-17-16; expires=Mon, 16-Apr-2018 16:20:39 GMT; path=/; domain=.google.hu"
+            },
+            {
+              "name": "set-cookie",
+              "value": "NID=126=X1aUPPr4Fa-54Hl_AghdBJeQcM3yHSqGSp2lA4zJmITOHph-yAoUnrAufDO6_frxS_2ZNfXj9jzYhz1NJZc82FmvEeOqyqtvmb6lRkbzNopTvzpqnFWQzscFYlc88j7AzT7kTysmZZgzzVE8BTyLQdhVOwqzdA8nRnULndi9h4662TIqyEh3EOZ0EWxNoOBwJ4i6lF_XZRwKpo3V1XnLEVLC7PhRyperHOemXY2Ga3me28dTX1rhIO1DtwPyE9u-F3PTRGyOpravMqhvGa_IhTID; expires=Sun, 16-Sep-2018 16:20:39 GMT; path=/; domain=.google.hu; HttpOnly"
+            },
+            {
+              "name": "cache-control",
+              "value": "private, max-age=0"
+            },
+            {
+              "name": "strict-transport-security",
+              "value": "max-age=3600"
+            },
+            {
+              "name": "content-type",
+              "value": "text/html; charset=UTF-8"
+            },
+            {
+              "name": "alt-svc",
+              "value": "hq=\":443\"; ma=2592000; quic=51303431; quic=51303339; quic=51303335,quic=\":443\"; ma=2592000; v=\"41,39,35\""
+            },
+            {
+              "name": "x-xss-protection",
+              "value": "1; mode=block"
+            },
+            {
+              "name": "expires",
+              "value": "-1"
+            }
+          ],
+          "cookies": [
+            {
+              "name": "1P_JAR",
+              "value": "2018-03-17-16",
+              "path": "/",
+              "domain": ".google.hu",
+              "expires": "2018-04-16T16:20:39.000Z",
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "NID",
+              "value": "126=X1aUPPr4Fa-54Hl_AghdBJeQcM3yHSqGSp2lA4zJmITOHph-yAoUnrAufDO6_frxS_2ZNfXj9jzYhz1NJZc82FmvEeOqyqtvmb6lRkbzNopTvzpqnFWQzscFYlc88j7AzT7kTysmZZgzzVE8BTyLQdhVOwqzdA8nRnULndi9h4662TIqyEh3EOZ0EWxNoOBwJ4i6lF_XZRwKpo3V1XnLEVLC7PhRyperHOemXY2Ga3me28dTX1rhIO1DtwPyE9u-F3PTRGyOpravMqhvGa_IhTID",
+              "path": "/",
+              "domain": ".google.hu",
+              "expires": "2018-09-16T16:20:39.000Z",
+              "httpOnly": true,
+              "secure": false
+            }
+          ],
+          "content": {
+            "size": 219795,
+            "mimeType": "text/html",
+            "text": "<!doctype html><html></html>"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 66224
+        },
+        "cache": {},
+        "timings": {
+          "blocked": -0.640000000056261,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.26800000000548596,
+          "wait": 115.64300000003414,
+          "receive": 0,
+          "_blocked_queueing": -1
+        },
+        "serverIPAddress": "172.217.18.67",
+        "pageref": "page_1"
+      }
+    ]
+  }
+}
