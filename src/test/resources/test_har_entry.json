@@ -1,0 +1,83 @@
+{
+  "startedDateTime": "2018-04-20T11:18:06.880Z",
+  "time": 592.6500000059605,
+  "request": {
+    "method": "GET",
+    "url": "http://www.softwareishard.com/blog/har-12-spec/?a=1&b=2",
+    "httpVersion": "HTTP/1.1",
+    "headers": [
+      {
+        "name": "Accept-Encoding",
+        "value": "gzip, deflate"
+      },
+      {
+        "name": "Host",
+        "value": "www.softwareishard.com"
+      },
+      {
+        "name": "Cookie",
+        "value": "__utma=57327400.108880243.1520934914.1520934914.1524223067.2"
+      }
+    ],
+    "queryString": [],
+    "cookies": [
+      {
+        "name": "__utma",
+        "value": "57327400.108880243.1520934914.1520934914.1524223067.2",
+        "expires": null,
+        "httpOnly": false,
+        "secure": false
+      }
+    ],
+    "headersSize": 628,
+    "bodySize": 0
+  },
+  "response": {
+    "status": 200,
+    "statusText": "OK",
+    "httpVersion": "HTTP/1.1",
+    "headers": [
+      {
+        "name": "Date",
+        "value": "Fri, 20 Apr 2018 11:18:06 GMT"
+      },
+      {
+        "name": "Content-Encoding",
+        "value": "gzip"
+      },
+      {
+        "name": "Set-Cookie",
+        "value": "asd"
+      },
+      {
+        "name": "Set-Cookie",
+        "value": "123"
+      }
+    ],
+    "cookies": [],
+    "content": {
+      "size": 69556,
+      "mimeType": "text/html",
+      "compression": 55532,
+      "text": "content"
+    },
+    "redirectURL": "",
+    "headersSize": 554,
+    "bodySize": 14024,
+    "_transferSize": 14578
+  },
+  "cache": {},
+  "timings": {
+    "blocked": -0.19000000227242697,
+    "dns": -1,
+    "ssl": -1,
+    "connect": -1,
+    "send": 0.3810000198427569,
+    "wait": 592.2689999861177,
+    "receive": 0,
+    "_blocked_queueing": -1
+  },
+  "serverIPAddress": "91.239.200.59",
+  "connection": "227182",
+  "pageref": "page_2"
+}

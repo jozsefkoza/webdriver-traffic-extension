@@ -1,12 +1,4 @@
-package com.joezee.trafficsniffer.record;
-
-import net.lightbody.bmp.core.har.HarEntry;
-import org.mockito.Mock;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-
-import java.util.Optional;
-import java.util.function.Function;
+package com.joezee.trafficsniffer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -14,12 +6,21 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
+import java.util.Optional;
+import java.util.function.Function;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+
+import net.lightbody.bmp.core.har.HarEntry;
+
 /**
  * Unit test for {@link FailsafeHarEntryToTrafficElementConverter}.
  *
  * @author JoeZee
  */
-public class FailsafeHarEntryToTrafficElementConverterTest {
+class FailsafeHarEntryToTrafficElementConverterTest {
 
     @Mock
     private Function<HarEntry, TrafficElement> converter;
@@ -28,14 +29,14 @@ public class FailsafeHarEntryToTrafficElementConverterTest {
 
     private FailsafeHarEntryToTrafficElementConverter failsafeConverter;
 
-    @BeforeMethod
-    public void setUp() {
+    @BeforeEach
+    void setUp() {
         initMocks(this);
         failsafeConverter = new FailsafeHarEntryToTrafficElementConverter(converter);
     }
 
     @Test
-    public void shouldReturnEmptyIfConversionFails() {
+    void shouldReturnEmptyIfConversionFails() {
         when(converter.apply(any())).thenThrow(new IllegalArgumentException());
 
         Optional<TrafficElement> trafficElement = failsafeConverter.apply(harEntry);
@@ -44,7 +45,7 @@ public class FailsafeHarEntryToTrafficElementConverterTest {
     }
 
     @Test
-    public void shouldReturnConvertedValue() {
+    void shouldReturnConvertedValue() {
         when(converter.apply(any())).thenReturn(mock(TrafficElement.class));
 
         Optional<TrafficElement> trafficElement = failsafeConverter.apply(harEntry);

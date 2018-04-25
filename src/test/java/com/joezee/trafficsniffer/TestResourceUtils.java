@@ -1,14 +1,12 @@
 package com.joezee.trafficsniffer;
 
-import com.google.gson.Gson;
-import net.lightbody.bmp.core.har.Har;
-import net.lightbody.bmp.core.har.HarEntry;
+import java.io.File;
+import java.io.FileReader;
+
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+import com.google.gson.Gson;
 
 /**
  * Utility class for managing test resources.
@@ -23,15 +21,12 @@ public final class TestResourceUtils {
         //Prevent instantiation
     }
 
-    public static Har getTestHar() {
-        try (InputStreamReader reader = new InputStreamReader(TEST_HAR.getInputStream(), StandardCharsets.UTF_8)) {
-            return GSON.fromJson(reader, Har.class);
-        } catch (IOException e) {
-            throw new IllegalArgumentException("Cannot load test resource", e);
+    public static <T> T getTestData(String path, Class<T> resultType) {
+        try {
+            File resource = new File(Thread.currentThread().getContextClassLoader().getResource(path).toURI());
+            return GSON.fromJson(new FileReader(resource), resultType);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Cannot load test data from file at path: " + path, e);
         }
-    }
-
-    public static HarEntry getTestHarEntry() {
-        return getTestHar().getLog().getEntries().get(0);
     }
 }
