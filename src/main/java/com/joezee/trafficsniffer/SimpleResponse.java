@@ -1,14 +1,18 @@
-package com.joezee.trafficsniffer.record;
-
-import com.google.common.collect.ImmutableMap;
-import org.springframework.http.HttpStatus;
-
-import java.util.List;
-import java.util.Map;
+package com.joezee.trafficsniffer;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
+import org.springframework.http.HttpStatus;
+
+import com.google.common.base.MoreObjects;
+import com.google.common.collect.ImmutableMap;
+
 final class SimpleResponse implements TrafficElement.Response {
+
     private final HttpStatus status;
     private final Map<String, List<String>> headers;
     private final String content;
@@ -19,7 +23,7 @@ final class SimpleResponse implements TrafficElement.Response {
         content = requireNonNull(builder.content);
     }
 
-    public static Builder builder() {
+    static Builder builder() {
         return new Builder();
     }
 
@@ -36,6 +40,34 @@ final class SimpleResponse implements TrafficElement.Response {
     @Override
     public String content() {
         return content;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SimpleResponse that = (SimpleResponse) o;
+        return status == that.status
+                && Objects.equals(headers, that.headers)
+                && Objects.equals(content, that.content);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(status, headers, content);
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("status", status)
+                .add("headers", headers)
+                .add("content", content)
+                .toString();
     }
 
     public static class Builder {
@@ -58,7 +90,7 @@ final class SimpleResponse implements TrafficElement.Response {
             return this;
         }
 
-        public SimpleResponse build() {
+        public TrafficElement.Response build() {
             return new SimpleResponse(this);
         }
     }

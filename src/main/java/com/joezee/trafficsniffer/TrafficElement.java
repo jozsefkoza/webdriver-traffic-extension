@@ -1,13 +1,13 @@
-package com.joezee.trafficsniffer.record;
-
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
+package com.joezee.trafficsniffer;
 
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 
 /**
  * Represents an element of the network traffic.

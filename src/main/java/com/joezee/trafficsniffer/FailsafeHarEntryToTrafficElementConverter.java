@@ -1,12 +1,15 @@
-package com.joezee.trafficsniffer.record;
+package com.joezee.trafficsniffer;
 
-import net.lightbody.bmp.core.har.HarEntry;
+import static java.util.Objects.requireNonNull;
 
 import java.util.Optional;
 import java.util.function.Function;
 
-import static java.util.Objects.requireNonNull;
+import net.lightbody.bmp.core.har.HarEntry;
 
+/**
+ * Convert a {@link HarEntry} to a {@link TrafficElement} if the conversion does not yield in an exception.
+ */
 final class FailsafeHarEntryToTrafficElementConverter implements Function<HarEntry, Optional<TrafficElement>> {
 
     private final Function<HarEntry, TrafficElement> converter;
