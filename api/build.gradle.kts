@@ -1,7 +1,3 @@
-plugins {
-    id("io.franzbecker.gradle-lombok").version("1.14")
-}
-
-lombok {
-    version = "1.18.4"
+dependencies {
+    implementation("com.google.guava:guava:27.0-jre")
 }

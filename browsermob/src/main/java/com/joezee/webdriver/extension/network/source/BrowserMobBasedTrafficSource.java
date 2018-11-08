@@ -12,7 +12,7 @@ import net.lightbody.bmp.core.har.Har;
 import net.lightbody.bmp.core.har.HarEntry;
 import net.lightbody.bmp.core.har.HarLog;
 
-import com.joezee.webdriver.extension.network.model.TrafficElement;
+import com.joezee.webdriver.extension.network.http.TrafficElement;
 
 /**
  * A {@link TrafficSource} which returns all the captured traffic by {@link BrowserMobProxy}.

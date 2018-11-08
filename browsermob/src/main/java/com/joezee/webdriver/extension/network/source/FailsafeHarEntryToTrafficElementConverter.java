@@ -7,7 +7,7 @@ import java.util.function.Function;
 
 import net.lightbody.bmp.core.har.HarEntry;
 
-import com.joezee.webdriver.extension.network.model.TrafficElement;
+import com.joezee.webdriver.extension.network.http.TrafficElement;
 
 /**
  * Convert a {@link HarEntry} to a {@link TrafficElement} if the conversion does not yield in an exception.

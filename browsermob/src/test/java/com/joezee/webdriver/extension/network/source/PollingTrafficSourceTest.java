@@ -20,7 +20,7 @@ import org.mockito.Mock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.joezee.webdriver.extension.network.model.TrafficElement;
+import com.joezee.webdriver.extension.network.http.TrafficElement;
 
 /**
  * Unit test for {@link PollingTrafficSource}.

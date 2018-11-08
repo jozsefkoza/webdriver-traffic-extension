@@ -1,4 +1,4 @@
-package com.joezee.webdriver.extension.network.model;
+package com.joezee.webdriver.extension.network.http;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.mock;
@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
  * @author JoeZee
  */
 class SimpleTrafficElementTest {
-    private static final TrafficElement.Request REQUEST = mock(TrafficElement.Request.class);
-    private static final TrafficElement.Response RESPONSE = mock(TrafficElement.Response.class);
+    private static final Request REQUEST = mock(Request.class);
+    private static final Response RESPONSE = mock(Response.class);
 
     @Test
     void shouldFailIfRequestIsNull() {

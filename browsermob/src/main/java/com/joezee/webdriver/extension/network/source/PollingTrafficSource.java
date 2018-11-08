@@ -16,7 +16,7 @@ import io.reactivex.Flowable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.joezee.webdriver.extension.network.model.TrafficElement;
+import com.joezee.webdriver.extension.network.http.TrafficElement;
 
 /**
  * Gets a snapshot of the captured network traffic.

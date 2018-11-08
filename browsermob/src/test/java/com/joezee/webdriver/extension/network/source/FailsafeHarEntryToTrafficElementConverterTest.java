@@ -14,7 +14,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
-import com.joezee.webdriver.extension.network.model.TrafficElement;
+import com.joezee.webdriver.extension.network.http.TrafficElement;
 
 /**
  * Unit test for {@link FailsafeHarEntryToTrafficElementConverter}.

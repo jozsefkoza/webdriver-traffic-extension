@@ -3,7 +3,7 @@ package com.joezee.webdriver.extension.network.source;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-import com.joezee.webdriver.extension.network.model.TrafficElement;
+import com.joezee.webdriver.extension.network.http.TrafficElement;
 
 /**
  * An object that can get network traffic entries as a stream of {@link TrafficElement}s.

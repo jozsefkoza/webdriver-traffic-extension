@@ -11,9 +11,9 @@ import net.lightbody.bmp.core.har.HarEntry;
 import org.junit.jupiter.api.Test;
 
 import com.joezee.webdriver.extension.network.TestResourceUtils;
-import com.joezee.webdriver.extension.network.model.TrafficElement;
-import com.joezee.webdriver.extension.network.model.TrafficElement.Request;
-import com.joezee.webdriver.extension.network.model.TrafficElement.Response;
+import com.joezee.webdriver.extension.network.http.Request;
+import com.joezee.webdriver.extension.network.http.Response;
+import com.joezee.webdriver.extension.network.http.TrafficElement;
 
 /**
  * Unit test for {@link HarEntryToTrafficElementConverter}.
@@ -29,12 +29,14 @@ class HarEntryToTrafficElementConverterTest {
     void shouldConvertHarEntryToTrafficElement() {
         TrafficElement trafficElement = converter.apply(HAR_ENTRY);
 
+        System.out.println(trafficElement);
+
         assertThat(trafficElement.request()).isEqualTo(request());
         assertThat(trafficElement.response()).isEqualTo(response());
     }
 
     private Request request() {
-        return TrafficElement.simpleRequest()
+        return Request.simpleRequest()
             .method("GET")
             .url(URI.create("http://www.softwareishard.com/blog/har-12-spec/?a=1&b=2"))
             .headers(ImmutableMap.<String, List<String>>builder()
@@ -46,8 +48,8 @@ class HarEntryToTrafficElementConverterTest {
     }
 
     private Response response() {
-        return TrafficElement.simpleResponse()
-            .status(200)
+        return Response.simpleResponse()
+            .statusCode(200)
             .headers(ImmutableMap.<String, List<String>>builder()
                 .put("Date", ImmutableList.of("Fri, 20 Apr 2018 11:18:06 GMT"))
                 .put("Content-Encoding", ImmutableList.of("gzip"))

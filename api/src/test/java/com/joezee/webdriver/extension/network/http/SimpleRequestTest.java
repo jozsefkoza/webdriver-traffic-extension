@@ -1,4 +1,4 @@
-package com.joezee.webdriver.extension.network.model;
+package com.joezee.webdriver.extension.network.http;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -9,8 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.jupiter.api.Test;
-
-import com.joezee.webdriver.extension.network.model.TrafficElement.Request;
 
 /**
  * Unit test for {@link SimpleResponse}.

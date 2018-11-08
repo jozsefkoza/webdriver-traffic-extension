@@ -1,25 +1,25 @@
 package com.joezee.webdriver.extension.network.source;
 
 import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.mapping;
+import static java.util.stream.Collectors.toSet;
 
 import java.net.URI;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Function;
-import java.util.stream.Collector;
 
-import com.google.common.collect.ImmutableList;
 import net.lightbody.bmp.core.har.HarEntry;
 import net.lightbody.bmp.core.har.HarNameValuePair;
 import net.lightbody.bmp.core.har.HarPostData;
 import net.lightbody.bmp.core.har.HarRequest;
 import net.lightbody.bmp.core.har.HarResponse;
 
-import com.joezee.webdriver.extension.network.model.TrafficElement;
-import com.joezee.webdriver.extension.network.model.TrafficElement.Request;
-import com.joezee.webdriver.extension.network.model.TrafficElement.Response;
+import com.joezee.webdriver.extension.network.http.Request;
+import com.joezee.webdriver.extension.network.http.Response;
+import com.joezee.webdriver.extension.network.http.TrafficElement;
 
 /**
  * Converts a {@link HarEntry} to a {@link TrafficElement}.
@@ -33,7 +33,7 @@ final class HarEntryToTrafficElementConverter implements Function<HarEntry, Traf
     }
 
     private Request getRequest(HarRequest request) {
-        return TrafficElement.simpleRequest()
+        return Request.simpleRequest()
             .url(URI.create(request.getUrl()))
             .method(request.getMethod())
             .headers(getHeaders(request.getHeaders()))
@@ -42,22 +42,17 @@ final class HarEntryToTrafficElementConverter implements Function<HarEntry, Traf
     }
 
     private Response getResponse(HarResponse response) {
-        return TrafficElement.simpleResponse()
-            .status(response.getStatus())
+        return Response.simpleResponse()
+            .statusCode(response.getStatus())
             .headers(getHeaders(response.getHeaders()))
             .body(response.getContent().getText())
             .build();
     }
 
-    private Map<String, ? extends Collection<String>> getHeaders(List<HarNameValuePair> headers) {
+    private Map<String, Set<String>> getHeaders(List<HarNameValuePair> headers) {
         return headers.stream().collect(groupingBy(
             HarNameValuePair::getName,
-            Collector.of(
-                ImmutableList::<String>builder,
-                (builder, pair) -> builder.add(pair.getValue()),
-                (base, rest) -> base.addAll(rest.build()),
-                ImmutableList.Builder::build
-            )));
+            mapping(HarNameValuePair::getValue, toSet())));
     }
 
     private String getBody(HarPostData postData) {

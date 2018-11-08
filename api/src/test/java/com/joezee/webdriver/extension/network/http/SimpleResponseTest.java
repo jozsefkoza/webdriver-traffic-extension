@@ -1,4 +1,4 @@
-package com.joezee.webdriver.extension.network.model;
+package com.joezee.webdriver.extension.network.http;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.jupiter.api.Test;
-
-import com.joezee.webdriver.extension.network.model.TrafficElement.Response;
 
 /**
  * Unit test for {@link SimpleRequest}.
@@ -23,20 +21,20 @@ class SimpleResponseTest {
 
     @Test
     void shouldHaveZeroDefaultStatus() {
-        SimpleResponse response = SimpleResponse.builder().headers(HEADERS).body(BODY).build();
+        Response response = SimpleResponse.builder().headers(HEADERS).body(BODY).build();
 
-        assertThat(response.status()).isEqualTo(0);
+        assertThat(response.statusCode()).isEqualTo(0);
     }
 
     @Test
     void shouldFailIfHeadersAreNull() {
-        assertThatThrownBy(() -> SimpleResponse.builder().status(STATUS).headers(null).body(BODY).build())
+        assertThatThrownBy(() -> SimpleResponse.builder().statusCode(STATUS).headers(null).body(BODY).build())
             .isInstanceOf(NullPointerException.class);
     }
 
     @Test
     void shouldNotFailIfBodyIsNull() {
-        Response response = SimpleResponse.builder().status(STATUS).headers(HEADERS).body(null).build();
+        Response response = SimpleResponse.builder().statusCode(STATUS).headers(HEADERS).body(null).build();
 
         assertThat(response.body()).isEmpty();
     }
