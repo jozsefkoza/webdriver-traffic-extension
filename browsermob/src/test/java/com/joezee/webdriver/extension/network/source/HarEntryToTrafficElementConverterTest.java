@@ -29,8 +29,6 @@ class HarEntryToTrafficElementConverterTest {
     void shouldConvertHarEntryToTrafficElement() {
         TrafficElement trafficElement = converter.apply(HAR_ENTRY);
 
-        System.out.println(trafficElement);
-
         assertThat(trafficElement.request()).isEqualTo(request());
         assertThat(trafficElement.response()).isEqualTo(response());
     }
