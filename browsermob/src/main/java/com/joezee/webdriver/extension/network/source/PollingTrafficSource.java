@@ -42,7 +42,7 @@ public final class PollingTrafficSource implements TrafficSource {
     }
 
     @Override
-    public Stream<TrafficElement> getTraffic() {
+    public Stream<TrafficElement> traffic() {
         Snapshot snapshot = pollTraffic();
         LOG.debug("Captured {} traffic elements", snapshot.trafficElements.size());
         return snapshot.trafficElements.stream();

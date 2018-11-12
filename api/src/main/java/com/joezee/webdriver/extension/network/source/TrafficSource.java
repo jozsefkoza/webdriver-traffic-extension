@@ -12,19 +12,15 @@ import com.joezee.webdriver.extension.network.http.TrafficElement;
  */
 public interface TrafficSource extends Supplier<Stream<TrafficElement>> {
 
-    static TrafficSource empty() {
-        return Stream::empty;
-    }
-
     /**
-     * Gets the traffic stream.
+     * Get the traffic stream.
      *
      * @return the stream of {@link TrafficElement}s
      */
-    Stream<TrafficElement> getTraffic();
+    Stream<TrafficElement> traffic();
 
     @Override
     default Stream<TrafficElement> get() {
-        return getTraffic();
+        return traffic();
     }
 }

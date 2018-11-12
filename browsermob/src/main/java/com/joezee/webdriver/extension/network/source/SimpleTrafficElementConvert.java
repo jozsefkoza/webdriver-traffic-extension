@@ -26,7 +26,8 @@ import com.joezee.webdriver.extension.network.http.TrafficElement;
  *
  * @author JoeZee
  */
-final class HarEntryToTrafficElementConverter implements Function<HarEntry, TrafficElement> {
+final class SimpleTrafficElementConvert implements Function<HarEntry, TrafficElement> {
+
     @Override
     public TrafficElement apply(HarEntry harEntry) {
         return TrafficElement.simple(getRequest(harEntry.getRequest()), getResponse(harEntry.getResponse()));

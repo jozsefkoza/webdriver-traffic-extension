@@ -10,27 +10,25 @@ import com.google.common.collect.ImmutableMap;
 import net.lightbody.bmp.core.har.HarEntry;
 import org.junit.jupiter.api.Test;
 
-import com.joezee.webdriver.extension.network.TestResourceUtils;
+import com.joezee.webdriver.extension.network.TestResourceReader;
 import com.joezee.webdriver.extension.network.http.Request;
 import com.joezee.webdriver.extension.network.http.Response;
 import com.joezee.webdriver.extension.network.http.TrafficElement;
 
 /**
- * Unit test for {@link HarEntryToTrafficElementConverter}.
+ * Unit test for {@link SimpleTrafficElementConvert}.
  *
  * @author JoeZee
  */
-class HarEntryToTrafficElementConverterTest {
-    private static final HarEntry HAR_ENTRY = TestResourceUtils.harEntry();
+class SimpleTrafficElementConvertTest {
 
-    private final HarEntryToTrafficElementConverter converter = new HarEntryToTrafficElementConverter();
+    private final SimpleTrafficElementConvert converter = new SimpleTrafficElementConvert();
 
     @Test
     void shouldConvertHarEntryToTrafficElement() {
-        TrafficElement trafficElement = converter.apply(HAR_ENTRY);
+        TrafficElement trafficElement = converter.apply(TestResourceReader.read("har_entry.json", HarEntry.class));
 
-        assertThat(trafficElement.request()).isEqualTo(request());
-        assertThat(trafficElement.response()).isEqualTo(response());
+        assertThat(trafficElement).isEqualTo(TrafficElement.simple(request(), response()));
     }
 
     private Request request() {
