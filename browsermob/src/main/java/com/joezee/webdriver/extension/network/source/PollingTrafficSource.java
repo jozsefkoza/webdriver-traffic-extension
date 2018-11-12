@@ -1,17 +1,16 @@
 package com.joezee.webdriver.extension.network.source;
 
 import static com.google.common.base.Preconditions.checkArgument;
+import static java.util.Collections.emptyList;
 import static java.util.Objects.requireNonNull;
 import static java.util.stream.Collectors.toList;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Stream;
 
-import com.google.common.base.Preconditions;
 import io.reactivex.Flowable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,10 +36,18 @@ public final class PollingTrafficSource implements TrafficSource {
     private long maxPollingTime = DEFAULT_MAX_POLLING_TIME_IN_MILLIS;
     private long pollingInterval = DEFAULT_POLLING_INTERVAL_IN_MILLIS;
 
+    /**
+     * Create a new polling traffic source from the argument one with default poll timeout and period.
+     *
+     * @param trafficSource the base traffic source to use in polling
+     */
     public PollingTrafficSource(TrafficSource trafficSource) {
         this.trafficSource = requireNonNull(trafficSource);
     }
 
+    /**
+     * Poll the traffic for traffic elements in a blocking way.
+     */
     @Override
     public Stream<TrafficElement> traffic() {
         Snapshot snapshot = pollTraffic();
@@ -55,7 +62,7 @@ public final class PollingTrafficSource implements TrafficSource {
      * @throws IllegalArgumentException if the time supplied is negative
      */
     public void setMaxPollingTimeInMillis(long maxPollingTime) {
-        Preconditions.checkArgument(maxPollingTime >= 0, "Max polling time must be non-negative");
+        checkArgument(maxPollingTime >= 0, "Max polling time must be non-negative");
         this.maxPollingTime = maxPollingTime;
     }
 
@@ -91,7 +98,7 @@ public final class PollingTrafficSource implements TrafficSource {
      * Represents a snapshot of the captured network traffic.
      */
     private static final class Snapshot {
-        private static final Snapshot EMPTY = new Snapshot(Collections.emptyList());
+        private static final Snapshot EMPTY = new Snapshot(emptyList());
 
         private final Collection<TrafficElement> trafficElements;
 
@@ -100,9 +107,9 @@ public final class PollingTrafficSource implements TrafficSource {
         }
 
         static Snapshot create(TrafficSource trafficSource) {
-            List<TrafficElement> trafficElements = trafficSource.get().collect(toList());
+            List<TrafficElement> trafficElements = trafficSource.traffic().collect(toList());
             Snapshot snapshot = EMPTY;
-            if (trafficElements != null && !trafficElements.isEmpty()) {
+            if (!trafficElements.isEmpty()) {
                 snapshot = new Snapshot(trafficElements);
             }
             return snapshot;
