@@ -98,8 +98,8 @@ configure<PublishingExtension> {
 }
 
 configure<BintrayExtension> {
-    user = properties["bintray.user"] as String
-    key = properties["bintray.apiKey"] as String
+    user = properties["bintray.user"] as String?
+    key = properties["bintray.apiKey"] as String?
 
     setPublications("releaseJar")
 
