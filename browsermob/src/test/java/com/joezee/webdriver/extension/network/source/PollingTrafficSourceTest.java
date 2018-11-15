@@ -52,14 +52,14 @@ class PollingTrafficSourceTest {
             .doOnEach(signal -> LOG.info("Emit new traffic element"))
             .forEach(traffic::add);
 
-        when(trafficSource.get()).then(invocation -> traffic.stream());
+        when(trafficSource.traffic()).then(invocation -> traffic.stream());
         pollingTrafficSource = new PollingTrafficSource(trafficSource);
     }
 
     @Test
     void shouldPollForTrafficElements() {
         Stopwatch stopwatch = Stopwatch.createStarted();
-        Stream<TrafficElement> trafficElements = pollingTrafficSource.get();
+        Stream<TrafficElement> trafficElements = pollingTrafficSource.traffic();
         stopwatch.stop();
         long elapsed = stopwatch.elapsed(TimeUnit.MILLISECONDS);
 

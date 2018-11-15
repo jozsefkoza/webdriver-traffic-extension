@@ -1,6 +1,5 @@
 package com.joezee.webdriver.extension.network.source;
 
-import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 import com.joezee.webdriver.extension.network.http.TrafficElement;
@@ -10,7 +9,7 @@ import com.joezee.webdriver.extension.network.http.TrafficElement;
  *
  * @author JoeZee
  */
-public interface TrafficSource extends Supplier<Stream<TrafficElement>> {
+public interface TrafficSource {
 
     /**
      * Get the traffic stream.
@@ -18,9 +17,4 @@ public interface TrafficSource extends Supplier<Stream<TrafficElement>> {
      * @return the stream of {@link TrafficElement}s
      */
     Stream<TrafficElement> traffic();
-
-    @Override
-    default Stream<TrafficElement> get() {
-        return traffic();
-    }
 }

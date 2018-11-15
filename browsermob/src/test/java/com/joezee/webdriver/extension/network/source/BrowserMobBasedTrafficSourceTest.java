@@ -43,8 +43,8 @@ class BrowserMobBasedTrafficSourceTest {
 
     @Test
     void shouldReturnNewStreamForEachInvocation() {
-        Stream<TrafficElement> first = trafficSource.get();
-        Stream<TrafficElement> second = trafficSource.get();
+        Stream<TrafficElement> first = trafficSource.traffic();
+        Stream<TrafficElement> second = trafficSource.traffic();
 
         assertThat(second).isNotSameAs(first);
     }

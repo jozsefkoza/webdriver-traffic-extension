@@ -29,7 +29,7 @@ public final class BrowserMobBasedTrafficSource implements TrafficSource {
     private final BrowserMobProxy proxy;
     private Function<HarEntry, TrafficElement> harEntryConverter = new SimpleTrafficElementConvert();
 
-    BrowserMobBasedTrafficSource(BrowserMobProxy proxy) {
+    public BrowserMobBasedTrafficSource(BrowserMobProxy proxy) {
         this.proxy = requireNonNull(proxy);
     }
 
