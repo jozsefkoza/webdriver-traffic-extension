@@ -8,7 +8,7 @@ buildscript {
 }
 
 allprojects {
-    group = "com.joezee.webdriver.extension"
+    group = "com.github.jozsefkoza.webdriver"
 
     repositories {
         mavenCentral()

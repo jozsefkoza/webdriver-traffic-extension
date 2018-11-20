@@ -1,2 +1,2 @@
-description = "API for WebDriver traffic sniffing extensions"
+description = "API of traffic sniffers for WebDriver"
 version = "0.1-SNAPSHOT"

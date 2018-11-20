@@ -1,4 +1,4 @@
-description = "Traffic sniffing extension for WebDriver with BrowserMob proxy"
+description = "Browsermob proxy based traffic sniffer for WebDriver"
 version = "0.1-SNAPSHOT"
 
 plugins {

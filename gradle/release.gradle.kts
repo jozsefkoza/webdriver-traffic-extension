@@ -20,20 +20,18 @@ buildscript {
 apply(plugin = "maven-publish")
 apply(plugin = "com.jfrog.bintray")
 
-val releaseName = "${rootProject.name}-${project.name}"
-val releaseVersion = fun(): String {
-    return (findProperty("releaseVersion") ?: project.version) as String
-}
+val releaseName = "traffic-sniffer-${project.name}"
+val releaseVersion = fun(): String = (findProperty("releaseVersion") ?: project.version) as String
 val releaseMode = findProperty("releaseMode")?.let {
     it as String
     ReleaseMode.valueOf(it.toUpperCase())
 } ?: ReleaseMode.DEV
 
 val repositoryHost = "github.com"
-val repositoryName = "jozsefkoza/webdriver-traffic-sniffer-extension"
-val projectUrl = "http://$repositoryHost/$repositoryName"
-val vcsUrl = "$projectUrl.git"
-val issueTrackerUrl = "$projectUrl/issues"
+val repositoryName = "jozsefkoza/webdriver-traffic-sniffer"
+val projectUrl = "https://$repositoryHost/$repositoryName"
+val projectVcsUrl = "$projectUrl.git"
+val projectIssueTrackerUrl = "$projectUrl/issues"
 
 val sourcesJar by tasks.getting
 val javadocJar by tasks.getting
@@ -57,12 +55,12 @@ configure<PublishingExtension> {
                 url.set(projectUrl)
                 scm {
                     url.set(projectUrl)
-                    connection.set("scm:git:$vcsUrl")
+                    connection.set("scm:git:$projectVcsUrl")
                     developerConnection.set("scm:git:git@$repositoryHost:$repositoryName.git")
                 }
                 issueManagement {
                     system.set("GitHub Issues")
-                    url.set(issueTrackerUrl)
+                    url.set(projectIssueTrackerUrl)
                 }
                 licenses {
                     license {
@@ -73,7 +71,7 @@ configure<PublishingExtension> {
                 }
                 developers {
                     developer {
-                        id.set("jozsefkoza")
+                        id.set("jkoza")
                         name.set("Jozsef Koza")
                         email.set("jozsef.koza@gmail.com")
                     }
@@ -98,14 +96,14 @@ configure<PublishingExtension> {
 
 val install by tasks.creating {
     group = tasks.getByName("publish").group
-    description = "Installs artifacts to various sources based on 'release.mode' property."
+    description = "Installs artifacts to various sources based on 'releaseMode' property."
 }
 
 if (releaseMode == ReleaseMode.DEV) {
     install.finalizedBy(tasks.getByName("publishToMavenLocal"))
 }
 
-if (releaseMode == ReleaseMode.RELEASE) {
+if (releaseMode == ReleaseMode.RELEASE && hasProperty("releaseVersion")) {
     configure<BintrayExtension> {
         user = findProperty("bintray.user") as String?
         key = findProperty("bintray.apiKey") as String?
@@ -116,12 +114,11 @@ if (releaseMode == ReleaseMode.RELEASE) {
 
         pkg = PackageConfig().apply {
             repo = "maven"
-
             name = releaseName
 
             websiteUrl = projectUrl
-            this.vcsUrl = vcsUrl
-            this.issueTrackerUrl = issueTrackerUrl
+            vcsUrl = projectVcsUrl
+            issueTrackerUrl = projectIssueTrackerUrl
             githubRepo = repositoryName
 
             setLicenses("Apache-2.0")

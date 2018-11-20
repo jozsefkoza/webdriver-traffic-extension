@@ -1,6 +1,4 @@
-rootProject.name = "traffic-sniffer"
+rootProject.name = "webdriver-traffic-sniffer"
 
 include(":api")
 include(":browsermob")
-
-enableFeaturePreview("STABLE_PUBLISHING")
