@@ -9,27 +9,40 @@ buildscript {
 
 allprojects {
     group = "com.joezee.webdriver.extension"
-    version = "0.1"
 
     repositories {
         mavenCentral()
     }
-
-    ext {
-        set("githubMetadata", GithubMetadata("jozsefkoza/webdriver-traffic-sniffer-extension"))
-        set("githubRepository", "jozsefkoza/webdriver-traffic-sniffer-extension")
-        set("github.projectUrl", "https://github.com/${ext["githubRepository"]}")
-        set("githubVcsUrl", "https://github.com/${ext["githubRepository"]}.git")
-    }
 }
+
+val releaseTag = findProperty("releaseTag")?.let { ReleaseTag(it as String) }
 
 subprojects {
-    apply(from = "$rootDir/module.gradle.kts")
+    apply(from = "$rootDir/gradle/module.gradle.kts")
+
+    releaseTag?.let {
+        if (it.project.isNullOrEmpty() || it.project == this.name) {
+            ext.set("releaseVersion", it.version)
+        }
+    }
+
+    apply(from = "$rootDir/gradle/release.gradle.kts")
 }
 
-data class GithubMetadata(val repositoryName: String) {
-    val baseUrl = "https://github.com"
-    fun url(): String = "$baseUrl/$repositoryName"
-    fun vcsUrl(): String = "${url()}.git"
-    fun issueTrackerUrl(): String = "${url()}/issues"
+class ReleaseTag(tag: String) {
+    val project: String?
+    val version: String
+    private val tagPattern = Regex("""^(?:([a-z]+):)?(?:v(\d+.\d+.\d+))${'$'}""")
+
+    init {
+        val match = tagPattern.matchEntire(tag)
+            ?: throw GradleException("releaseTag is expected to be in '(<project>:)?v<semanticVersion>' format")
+        project = match.groupValues[1].let {
+            if (findProject(":$it") == null) {
+                throw GradleException("Project '$this' specified in releaseTag does not exist")
+            }
+            it
+        }
+        version = match.groupValues[2]
+    }
 }
