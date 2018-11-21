@@ -1,9 +1,9 @@
 # Traffic sniffing extension for WebDriver
 
-![Travis (.org)](https://img.shields.io/travis/jozsefkoza/webdriver-traffic-sniffer.svg?logo=travis)
+[![Travis (.org)](https://img.shields.io/travis/jozsefkoza/webdriver-traffic-sniffer.svg)](https://travis-ci.org/jozsefkoza/webdriver-traffic-sniffer)
 
-![Bintray - api](https://img.shields.io/bintray/v/jozsefkoza/maven/traffic-sniffer-api.svg?label=api)
-![Bintray - browsermob](https://img.shields.io/bintray/v/jozsefkoza/maven/traffic-sniffer-browsermob.svg?label=browsermob)
+[![Download - api](https://img.shields.io/badge/dynamic/json.svg?label=api&url=https%3A%2F%2Fapi.bintray.com%2Fpackages%2Fjozsefkoza%2Fmaven%2Ftraffic-sniffer-api%2Fversions%2F_latest&query=%24.name&colorB=blue)](https://bintray.com/jozsefkoza/maven/traffic-sniffer-api/_latestVersion)
+[![Download - browsermob](https://img.shields.io/badge/dynamic/json.svg?label=browsermob&url=https%3A%2F%2Fapi.bintray.com%2Fpackages%2Fjozsefkoza%2Fmaven%2Ftraffic-sniffer-browsermob%2Fversions%2F_latest&query=%24.name&colorB=blue)](https://bintray.com/jozsefkoza/maven/traffic-sniffer-browsermob/_latestVersion)
 
 Utility to sniff network traffic initiated by WebDriver.
 
@@ -12,6 +12,7 @@ Utility to sniff network traffic initiated by WebDriver.
 To integrate it in your project, you have to add the follow repository to your build
 
 ##### Using maven
+
 ```xml
 <repository>
   <id>bintray-jozsefkoza</id>
@@ -21,6 +22,7 @@ To integrate it in your project, you have to add the follow repository to your b
 ```
 
 ##### Using gradle
+
 ```groovy
 repositories {
     maven {
